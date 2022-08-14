@@ -21,18 +21,20 @@ public class PlayerController : MonoBehaviour
     {
         float xSpeed = Input.GetAxis("Horizontal") * walkForce;
         // if (isJump == false) rb.AddForce(xSpeed, 0, 0);
-        rb.AddForce(xSpeed, 0, 0);
+        // rb.AddForce(xSpeed, 0, 0);
         if (isJump == false && Input.GetButtonDown("Jump"))
         {
             Jump();
         }
-        rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), rb.velocity.y, 0);
+        // rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), rb.velocity.y, 0);
+        rb.velocity = new Vector3(xSpeed, rb.velocity.y, 0);
     }
     private void OnCollisionEnter(Collision other)
     {
         if (other.collider.tag == "GroundTop")
         {
             isJump = false;
+            rb.mass = 1;
             pm.dynamicFriction = friction;
             pm.staticFriction = friction;
         }
@@ -50,5 +52,6 @@ public class PlayerController : MonoBehaviour
         pm.dynamicFriction = 0f;
         pm.staticFriction = 0f;
         rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
+        rb.mass = 10f;
     }
 }
