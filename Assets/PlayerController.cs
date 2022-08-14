@@ -20,8 +20,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         float xSpeed = Input.GetAxis("Horizontal") * walkForce;
-        if (isJump == false) rb.AddForce(xSpeed, 0, 0);
-        // rb.AddForce(xSpeed, 0, 0);
+        // if (isJump == false) rb.AddForce(xSpeed, 0, 0);
+        rb.AddForce(xSpeed, 0, 0);
         if (isJump == false && Input.GetButtonDown("Jump"))
         {
             Jump();
