@@ -22,12 +22,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         float xSpeed = Input.GetAxis("Horizontal") * walkForce;
-        // rb.AddForce(xSpeed, 0, 0);
+        if(!isJump)rb.AddForce(xSpeed, 0, 0);
+        if(isJump)rb.AddForce(xSpeed /2, 0, 0);
         if (isJump == false && Input.GetButtonDown("Jump")) Jump();
         if(isJump && rb.velocity.y < 0)Physics.gravity = Physics.gravity * (1+(2f *Time.deltaTime));
         // rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), rb.velocity.y, 0);
-        if(isJump)rb.AddForce(xSpeed,0,0);
-        rb.velocity = new Vector3(xSpeed, rb.velocity.y, 0);
+        float speedX = Mathf.Clamp(rb.velocity.x, -maxSpeed,maxSpeed);
+        rb.velocity = new Vector3(speedX, rb.velocity.y, 0);
     }
     private void OnCollisionEnter(Collision other)
     {

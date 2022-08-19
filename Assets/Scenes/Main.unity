@@ -211,7 +211,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344118708}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c1780591eb1fae9498b4b17727739395, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1000,7 +1000,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
@@ -1012,7 +1012,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847334861}
-  m_Material: {fileID: 13400000, guid: c1780591eb1fae9498b4b17727739395, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1096,10 +1096,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isJump: 0
-  walkForce: 5
+  walkForce: 10
   jumpForce: 10
   pm: {fileID: 13400000, guid: c1780591eb1fae9498b4b17727739395, type: 2}
   friction: 1
+  jumpPosY: 0
+  maxJumpPos: 10
 --- !u!1 &2069210865
 GameObject:
   m_ObjectHideFlags: 0
